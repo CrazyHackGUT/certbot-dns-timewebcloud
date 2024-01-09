@@ -1,0 +1,16 @@
+[project]
+name = "certbot-dns-timewebcloud"
+version = "0.1.0"
+description = "Timeweb Cloud DNS Authenticator plugin for Certbot"
+authors = [ { name = "Timeweb Cloud", email = "dev@timeweb.cloud" } ]
+license = { file = "COPYING" }
+readme = "README.md"
+requires-python = ">=3.4"
+dependencies = [
+    "requests >= 2",
+    "setuptools",
+    "certbot >= 0.34.0"
+]
+
+[project.entry-points."certbot.plugins"]
+dns-timewebcloud = "certbot_dns_timewebcloud.authenticator:Authenticator"
