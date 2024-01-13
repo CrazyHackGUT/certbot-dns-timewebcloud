@@ -5,7 +5,10 @@ DNS authenticator for Timeweb Cloud DNS
 import logging
 from typing import Callable
 
+import zope.interface
+
 from certbot import errors
+from certbot import interfaces
 from certbot.plugins import dns_common
 
 from .api import TWAPIClient
@@ -13,7 +16,8 @@ from .api import TWAPIClient
 
 logger = logging.getLogger(__name__)
 
-
+@zope.interface.implementer(interfaces.IAuthenticator)
+@zope.interface.provider(interfaces.IPluginFactory)
 class Authenticator(dns_common.DNSAuthenticator):
     """
     DNS Authenticator for Timeweb Cloud
